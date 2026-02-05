@@ -1,0 +1,10 @@
+# Auteur:Amil
+# nom du programe :2048
+# Date :08.02.25
+#version: 0.0
+
+from front import *
+
+
+new_block_spawn()
+mainloop()
