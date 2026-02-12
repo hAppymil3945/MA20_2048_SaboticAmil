@@ -5,6 +5,10 @@
 
 from front import *
 
+#display the grid
+display()
 
-new_block_spawn()
+
+
+#the main loop of the game
 mainloop()

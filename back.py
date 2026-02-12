@@ -4,13 +4,14 @@
 #version: 0.0
 
 
-
+#grid for example of all the color
 block_in_game= [[0,2,4,8,16],
                 [32,64,128,256,512],
                 [1024,2048,4096,8192,0],
                 [0,0,0,0,0],
                 [0,0,0,0,0]]
 """
+#the real grid
 block_in_game= [[0,0,0,0,0],
                 [0,0,0,0,0],
                 [0,0,0,0,0],
