@@ -1,7 +1,7 @@
 # Auteur : Amil
-# nom du programe :2048
-# Date :08.02.25
-#version: 0.0
+# nom du programme :2048
+# Date : 05.03.26
+#version: 0.1
 
 """
 #grid for example of all the color

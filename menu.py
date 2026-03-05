@@ -1,6 +1,7 @@
-# Auteur: Amil
-# nom du programe :2048
-# Date :06.02.26
+# Auteur : Amil
+# nom du programme :2048
+# Date : 05.03.26
+#version: 0.1
 
 from tkinter import *
 import subprocess
