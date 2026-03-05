@@ -4,6 +4,7 @@
 
 from tkinter import *
 import subprocess
+from tkinter.messagebox import showinfo
 
 #----------Menu window-------
 menu = Tk()
@@ -32,11 +33,14 @@ def size():
         config_grid -=1
 
 
-#take the name entry and take it for the title
+#take the name entry and take it for the title(it caps at 10)
 def hello(event):
     keys = event.keysym
     title = ent_name.get()
 
+    if len(title) >= 10:
+        showinfo(title="Trop long",message="Ton texte est trop long")
+        ent_name.delete(0, END)
     if keys=="Return":
         lbl_title.config(text=f"Bienvenue {title} !",font="Comfortaa 32 bold")
 

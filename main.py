@@ -5,9 +5,6 @@
 
 from front import *
 
-#display the grid
-display()
-
 
 
 #the main loop of the game
