@@ -8,4 +8,6 @@ from front import *
 
 
 #the main loop of the game
+new_block_spawn()
+new_block_spawn()
 mainloop()
