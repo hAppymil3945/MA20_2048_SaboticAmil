@@ -28,3 +28,5 @@ def pack5(a,b,c,d,e):
 print(pack5(2,2,4,4,4))
 print(pack5(0,0,0,0,2))
 print(pack5(0,4,4,2,2))
+
+

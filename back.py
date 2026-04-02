@@ -81,17 +81,18 @@ def pack5(a, b, c, d, e):
         nmove += 1
 
     # Return final state and operation count
-    return a, b, c, d, e, nmove
+    return (a, b, c, d, e, nmove)
 
 #pack the grid to the left
 def move_left():
+    global block_in_game
     tot_move = 0 # Track total number of movements across all rows
 
     # Process each row in the 5x5 grid
     for line in range(5):
         # Call pack5() to shift tiles left and merge matching values in this row
         # pack5() returns the 5 packed values plus the number of moves made
-        [block_in_game[line][0],block_in_game[line][1],block_in_game[line][2],block_in_game[line][3],block_in_game[line][4],nmove] = (
+        (block_in_game[line][0],block_in_game[line][1],block_in_game[line][2],block_in_game[line][3],block_in_game[line][4],nmove) = (
             pack5(block_in_game[line][0],block_in_game[line][1],block_in_game[line][2],block_in_game[line][3], block_in_game[line][4]))
 
         tot_move += nmove  # Add this row's movements to the total count
@@ -99,13 +100,14 @@ def move_left():
 
 #pack the grid to the right
 def move_right():
+    global block_in_game
     tot_move = 0 # Track total number of movements across all rows
 
     # Process each row in the 5x5 grid
     for line in range(5):
         # Call pack5() to shift tiles right and merge matching values in this row
         # pack5() returns the 5 packed values plus the number of moves made
-        [block_in_game[line][4],block_in_game[line][3],block_in_game[line][2],block_in_game[line][1],block_in_game[line][0],nmove] = (
+        (block_in_game[line][4],block_in_game[line][3],block_in_game[line][2],block_in_game[line][1],block_in_game[line][0],nmove) = (
             pack5(block_in_game[line][4],block_in_game[line][3],block_in_game[line][2],block_in_game[line][1],block_in_game[line][0]))
 
         tot_move += nmove # Add this row's movements to the total count
@@ -113,13 +115,14 @@ def move_right():
 
 #pack the grid to the down
 def move_down():
+    global block_in_game
     tot_move = 0 # Track total number of movements across all rows
 
     # Process each row in the 5x5 grid
     for col in range(5):
         # Call pack5() to shift tiles downward and merge matching values in this row
         # pack5() returns the 5 packed values plus the number of moves made
-        [block_in_game[4][col],block_in_game[3][col],block_in_game[2][col],block_in_game[1][col],block_in_game[0][col],nmove] = (
+        (block_in_game[4][col],block_in_game[3][col],block_in_game[2][col],block_in_game[1][col],block_in_game[0][col],nmove) = (
             pack5(block_in_game[4][col],block_in_game[3][col],block_in_game[2][col],block_in_game[1][col],block_in_game[0][col]))
 
         tot_move += nmove  # Add this row's movements to the total count
@@ -127,13 +130,14 @@ def move_down():
 
 #pack the grid to the up
 def move_up():
+    global block_in_game
     tot_move = 0 # Track total number of movements across all rows
 
     # Process each row in the 5x5 grid
     for col in range(5):
         # Call pack5() to shift tiles upward and merge matching values in this row
         # pack5() returns the 5 packed values plus the number of moves made
-        [block_in_game[0][col],block_in_game[1][col],block_in_game[2][col],block_in_game[3][col],block_in_game[4][col],nmove] = (
+        (block_in_game[0][col],block_in_game[1][col],block_in_game[2][col],block_in_game[3][col],block_in_game[4][col],nmove) = (
             pack5(block_in_game[0][col],block_in_game[1][col],block_in_game[2][col],block_in_game[3][col],block_in_game[4][col]))
 
         tot_move += nmove  # Add this row's movements to the total count
@@ -143,12 +147,12 @@ def detect_no_fusion():
     # Check horizontal merges
     for line in range(5):
         for col in range(4):
-            if block_in_game[line] [col] == block_in_game[line] [col + 1]:
+            if block_in_game[line] [col] == block_in_game[line][col + 1]:
                 return False  # Merge possible → return False
     # Check vertical merges
     for line in range(4):
         for col in range(5):
-            if block_in_game[line] [col] == block_in_game[line + 1] [col]:
+            if block_in_game[line] [col] == block_in_game[line + 1][col]:
                 return False  # Merge possible → return False
     return True  # No merges found → return True
 
@@ -156,7 +160,7 @@ def detect_full():
     # Check if grid is full (no empty cells)
     for line in range(5):
         for col in range(5):
-            if block_in_game[line] [col] == 0:
+            if block_in_game[line][col] == 0:
                 return False  # Empty cell found → not full
     return True  # All cells filled
 
