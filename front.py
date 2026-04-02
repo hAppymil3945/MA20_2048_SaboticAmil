@@ -186,7 +186,7 @@ def launch_game():
     window.title("2048")
     window.config(bg="#B5739D")
 
-    PlaySound('Menu_music.wav', SND_FILENAME | SND_ASYNC)
+
 
     # Reset game state
     lose = False
@@ -199,9 +199,9 @@ def launch_game():
         for line in range(5):
             block_in_game[col][line] = 0
 
-    # Close menu
+    # Close menu and stop the music
     menu.destroy()
-
+    PlaySound(None, SND_PURGE)
     # Build game UI
     initialize_game_interface()
 
@@ -211,6 +211,7 @@ def launch_game():
     display()
     timer()
     window.mainloop()
+
 
 
 def createmenu():
@@ -242,6 +243,7 @@ def createmenu():
     btn_launch.pack(pady=30)
     btn_quit = Button(menu, text="Quitter", relief="raised", font="Comfortaa 15 bold", width=15, command=menu.quit)
     btn_quit.pack(pady=30)
+    PlaySound('Menu_Music.wav', SND_FILENAME | SND_ASYNC) #Play a sound when the player is on the menu
 
     # Handle Enter key for name input
     def handle_name_input(event):
